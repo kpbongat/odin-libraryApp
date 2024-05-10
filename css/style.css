@@ -2,11 +2,24 @@ html {
   font-family: sans-serif;
 }
 
+body {
+    display: flex;
+}
+
+.main-section {
+    flex: 2;
+}
+.sidebar {
+    flex: 1;
+}
+
 table {
   border-collapse: collapse;
   border: 2px solid rgb(200,200,200);
   letter-spacing: 1px;
   font-size: 0.8rem;
+  width: 100%;
+  
 }
 
 td, th {
@@ -16,7 +29,6 @@ td, th {
 
 th {
   background-color: rgb(235,235,235);
-  width: calc(100vw / 4);
 }
 
 td {
