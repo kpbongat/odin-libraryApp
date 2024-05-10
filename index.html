@@ -24,25 +24,25 @@
                 <h2>Enter New Book Details:</h1>
                 <div>
                     <label for="title">Title</label>
-                    <input id="title" type="text">
+                    <input id="title" type="text" name="title">
                 </div>
                 <div>
                     <label for="author">Author</label>
-                    <input id="author" type="text">
+                    <input id="author" type="text" name="author">
                 </div>
                 <div>
                     <label for="pages">Pages</label>
-                    <input id="pages" type="text">
+                    <input id="pages" type="number" name="pages">
                 </div>
                 <fieldset>
                     <legend>Read</legend>
                     <div>
                         <label for="true">Yes</label>
-                        <input id="true" type="radio" name="radio" value="true">
+                        <input id="true" type="radio" name="read" value="true">
                     </div>
                     <div>
                         <label for="false">No</label>
-                        <input id="false" type="radio" name="radio" value="false">
+                        <input id="false" type="radio" name="read" value="false">
                     </div>
                 </fieldset>
                 <button class="submit-book">Add Book</button>
