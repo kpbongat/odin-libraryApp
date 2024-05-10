@@ -1,6 +1,6 @@
 const library = [];
 
-function Book() {
+function Book(title, author, pages, isRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -43,4 +43,16 @@ const newBookButton = document.querySelector('.new-book');
 newBookButton.addEventListener('click', () => {
     const sidebarRef = document.querySelector('.sidebar');
     sidebarRef.classList.toggle('hide');
+})
+
+const submitBookButton = document.querySelector('.submit-book');
+submitBookButton.addEventListener('click', e => {
+        e.preventDefault();
+        const title = document.querySelector('#title').value;
+        const author = document.querySelector('#author').value;
+        const pages = document.querySelector('#pages').value;
+        const isRead = document.querySelector('#read').value;
+        const newBook = new Book(title, author, pages, isRead);
+        library.push(newBook);
+        displayBooks();
 })
