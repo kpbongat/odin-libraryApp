@@ -1,9 +1,4 @@
-const library = [{
-    title:'The Bible',
-    author:'God',
-    pages:1000,
-    isRead:true
-}];
+const library = [];
 
 function Book() {
     this.title = title;
