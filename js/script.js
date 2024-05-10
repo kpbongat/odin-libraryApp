@@ -22,20 +22,20 @@ function addBook() {
 function displayBooks() {
     const libraryContainer = document.querySelector('.library');
     for (const book of library) {
-        const bookCard = document.createElement('div');
-        const title = document.createElement('div');
+        const bookCard = document.createElement('tr');
+        const title = document.createElement('td');
         title.classList.toggle('title');
         title.textContent = book.title;
         bookCard.appendChild(title);
-        const author = document.createElement('div');
+        const author = document.createElement('td');
         author.classList.toggle('author');
         author.textContent = book.author;
         bookCard.appendChild(author);
-        const pages = document.createElement('div');
+        const pages = document.createElement('td');
         pages.classList.toggle('pages');
         pages.textContent = book.pages;
         bookCard.appendChild(pages);
-        const read = document.createElement('div');
+        const read = document.createElement('td');
         read.classList.toggle('read');
         read.textContent = (book.isRead) ? 'already read' : 'not read yet';
         bookCard.appendChild(read);
