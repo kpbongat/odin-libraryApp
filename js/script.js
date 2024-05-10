@@ -5,6 +5,7 @@ function Book(title, author, pages, isRead) {
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
+    this.display = false;
     this.info = function() {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${(isRead) ? 'already read' : 'not read yet'}`;
     }
@@ -17,6 +18,9 @@ function addBook() {
 function displayBooks() {
     const libraryContainer = document.querySelector('.library');
     for (const book of library) {
+        if (book.display) {
+            continue
+        }
         const bookCard = document.createElement('tr');
         const title = document.createElement('td');
         title.classList.toggle('title');
@@ -35,6 +39,7 @@ function displayBooks() {
         read.textContent = (book.isRead) ? 'already read' : 'not read yet';
         bookCard.appendChild(read);
         libraryContainer.appendChild(bookCard);
+        book.display = true;
     }
 }
 
