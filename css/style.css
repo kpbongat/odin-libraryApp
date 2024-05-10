@@ -2,15 +2,20 @@ html {
   font-family: sans-serif;
 }
 
-body {
+.flex-container {
     display: flex;
 }
 
 .main-section {
     flex: 2;
 }
+
 .sidebar {
     flex: 1;
+}
+
+.hide {
+    display: none;
 }
 
 table {

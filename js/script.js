@@ -42,3 +42,10 @@ function displayBooks() {
         libraryContainer.appendChild(bookCard);
     }
 }
+
+const newBookButton = document.querySelector('.new-book');
+
+newBookButton.addEventListener('click', () => {
+    const sidebarRef = document.querySelector('.sidebar');
+    sidebarRef.classList.toggle('hide');
+})
