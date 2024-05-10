@@ -24,6 +24,10 @@ html {
     grid-template-columns: 1fr 5fr;
 }
 
+fieldset div {
+    justify-items: start;
+}
+
 .hide {
     display: none;
 }

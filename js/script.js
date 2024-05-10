@@ -36,7 +36,7 @@ function displayBooks() {
         bookCard.appendChild(pages);
         const read = document.createElement('td');
         read.classList.toggle('read');
-        read.textContent = (book.isRead) ? 'already read' : 'not read yet';
+        read.textContent = (book.isRead === 'true') ? 'already read' : 'not read yet';
         bookCard.appendChild(read);
         libraryContainer.appendChild(bookCard);
         book.display = true;
@@ -57,7 +57,7 @@ submitBookButton.addEventListener('click', e => {
         const title = document.querySelector('#title').value;
         const author = document.querySelector('#author').value;
         const pages = document.querySelector('#pages').value;
-        const isRead = document.querySelector('#read').value;
+        const isRead = document.querySelector('fieldset :checked').value;
         const newBook = new Book(title, author, pages, isRead);
         library.push(newBook);
         displayBooks();
