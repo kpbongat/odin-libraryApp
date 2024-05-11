@@ -38,6 +38,8 @@ function displayBooks() {
         read.classList.toggle('read');
         read.textContent = (book.isRead === 'true') ? 'already read' : 'not read yet';
         bookCard.appendChild(read);
+        const bookIndex = library.findIndex(i => i === book);
+        bookCard.setAttribute('data-id', bookIndex);
         libraryContainer.appendChild(bookCard);
         book.display = true;
     }
