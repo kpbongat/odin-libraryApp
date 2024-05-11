@@ -48,6 +48,7 @@ const newBookButton = document.querySelector('.new-book');
 newBookButton.addEventListener('click', () => {
     const sidebarRef = document.querySelector('.sidebar');
     sidebarRef.classList.toggle('hide');
+    
 })
 
 const submitBookButton = document.querySelector('.submit-book');
