@@ -22,6 +22,7 @@ function displayBooks() {
             continue
         }
         const bookCard = document.createElement('tr');
+        bookCard.setAttribute('data-id', book['data-id']);
         const title = document.createElement('td');
         title.classList.toggle('title');
         title.textContent = book.title;
@@ -38,8 +39,6 @@ function displayBooks() {
         read.classList.toggle('read');
         read.textContent = (book.isRead === 'true') ? 'already read' : 'not read yet';
         bookCard.appendChild(read);
-        const bookIndex = library.findIndex(i => i === book);
-        bookCard.setAttribute('data-id', bookIndex);
         libraryContainer.appendChild(bookCard);
         book.display = true;
     }
@@ -63,6 +62,8 @@ submitBookButton.addEventListener('click', e => {
         const isRead = document.querySelector('fieldset :checked').value;
         const newBook = new Book(title, author, pages, isRead);
         library.push(newBook);
+        const bookIndex = library.findIndex(i => i === newBook);
+        newBook['data-id'] = bookIndex;
         displayBooks();
         form.reset();
 
