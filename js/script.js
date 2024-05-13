@@ -26,7 +26,12 @@ function displayBooks() {
         const title = document.createElement('td');
         title.classList.toggle('title');
         title.textContent = book.title;
+        const removeButton = document.createElement('input');
+        removeButton.setAttribute('type','image');
+        removeButton.setAttribute('src','./images/close-thick.svg');
+        removeButton.classList.toggle('remove');
         bookCard.appendChild(title);
+        title.appendChild(removeButton); 
         const author = document.createElement('td');
         author.classList.toggle('author');
         author.textContent = book.author;
