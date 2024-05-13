@@ -36,7 +36,6 @@ function displayBooks() {
                     library.splice(idx, 1);
                 }
 
-
             });
             libraryContainer.removeChild(bookCard);
         })
@@ -53,8 +52,21 @@ function displayBooks() {
         bookCard.appendChild(pages);
         const read = document.createElement('td');
         read.classList.toggle('read');
-        read.textContent = (book.isRead === 'true') ? 'already read' : 'not read yet';
         bookCard.appendChild(read);
+        const readCheckBox = document.createElement('input');
+        readCheckBox.setAttribute('type','checkbox');
+        if (book.isRead) {
+            readCheckBox.setAttribute('checked', true);
+        }
+        readCheckBox.addEventListener('change', () => {
+            library.forEach((i, idx) => {
+                if (i['data-id'] === book['data-id']) {
+                    i.isRead = !i.isRead;
+                }
+
+            });     
+        })
+        read.appendChild(readCheckBox);
         libraryContainer.appendChild(bookCard);
         book.display = true;
     }
@@ -75,7 +87,7 @@ submitBookButton.addEventListener('click', e => {
         const title = document.querySelector('#title').value;
         const author = document.querySelector('#author').value;
         const pages = document.querySelector('#pages').value;
-        const isRead = document.querySelector('fieldset :checked').value;
+        const isRead = (document.querySelector('fieldset :checked').value === 'true');
         const newBook = new Book(title, author, pages, isRead);
         library.push(newBook);
         const bookIndex = library.findIndex(i => i === newBook);
