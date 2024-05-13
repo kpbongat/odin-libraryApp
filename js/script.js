@@ -31,7 +31,13 @@ function displayBooks() {
         removeButton.setAttribute('src','./images/close-thick.svg');
         removeButton.classList.toggle('remove');
         removeButton.addEventListener('click', () => {
-            library.splice(book['data-id'],1);
+            library.forEach((i, idx) => {
+                if (i['data-id'] === book['data-id']) {
+                    library.splice(idx, 1);
+                }
+
+
+            });
             libraryContainer.removeChild(bookCard);
         })
 
