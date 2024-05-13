@@ -30,6 +30,11 @@ function displayBooks() {
         removeButton.setAttribute('type','image');
         removeButton.setAttribute('src','./images/close-thick.svg');
         removeButton.classList.toggle('remove');
+        removeButton.addEventListener('click', () => {
+            library.splice(book['data-id'],1);
+            libraryContainer.removeChild(bookCard);
+        })
+
         bookCard.appendChild(title);
         title.appendChild(removeButton); 
         const author = document.createElement('td');
