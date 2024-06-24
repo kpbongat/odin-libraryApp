@@ -1,14 +1,19 @@
 class LibraryController {
+    #library;
     constructor () {
-        this.library = [];
+        this.#library = [];
     }
 
     addBook (title, author, pages, isRead) {
         const newBook = new Book (title, author, pages, isRead);
-        this.library.push(newBook);
-        const bookIndex = this.library.findIndex(i => i === newBook);
-        this.library[bookIndex]['data-id'] = bookIndex;
+        this.#library.push(newBook);
+        const bookIndex = this.#library.findIndex(i => i === newBook);
+        this.#library[bookIndex]['data-id'] = bookIndex;
 
+    }
+
+    get library () { 
+        return this.#library
     }
 }
 
