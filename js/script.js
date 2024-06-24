@@ -1,19 +1,18 @@
 class LibraryController {
-    #library;
     constructor () {
-        this.#library = [];
+        this.library = [];
     }
 
     addBook (title, author, pages, isRead) {
         const newBook = new Book (title, author, pages, isRead);
-        this.#library.push(newBook);
-        const bookIndex = this.#library.findIndex(i => i === newBook);
-        this.#library[bookIndex]['data-id'] = bookIndex;
+        this.library.push(newBook);
+        const bookIndex = this.library.findIndex(i => i === newBook);
+        this.library[bookIndex]['data-id'] = bookIndex;
 
     }
 }
 
-const library = new LibraryController();
+const mainLibrary = new LibraryController();
 
 class Book {
     constructor (title, author, pages, isRead) {
@@ -42,8 +41,8 @@ class ScreenController {
                 const author = document.querySelector('#author').value;
                 const pages = document.querySelector('#pages').value;
                 const isRead = (document.querySelector('fieldset :checked').value === 'true');
-                library.addBook(title, author, pages, isRead);
-                displayBooks();
+                mainLibrary.addBook(title, author, pages, isRead);
+                this.displayBooks();
                 form.reset();
         
         })
@@ -51,7 +50,7 @@ class ScreenController {
 
     displayBooks() {
         const libraryContainer = document.querySelector('.library');
-        for (const book of library) {
+        for (const book of mainLibrary.library) {
             if (book.display) {
                 continue
             }
@@ -65,9 +64,9 @@ class ScreenController {
             removeButton.setAttribute('src','./images/close-thick.svg');
             removeButton.classList.toggle('remove');
             removeButton.addEventListener('click', () => {
-                library.forEach((i, idx) => {
+                mainLibrary.library.forEach((i, idx) => {
                     if (i['data-id'] === book['data-id']) {
-                        library.splice(idx, 1);
+                        mainLibrary.library.splice(idx, 1);
                     }
     
                 });
@@ -93,7 +92,7 @@ class ScreenController {
                 readCheckBox.setAttribute('checked', true);
             }
             readCheckBox.addEventListener('change', () => {
-                library.forEach((i, idx) => {
+                mainLibrary.library.forEach((i, idx) => {
                     if (i['data-id'] === book['data-id']) {
                         i.isRead = !i.isRead;
                     }
