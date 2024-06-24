@@ -1,19 +1,25 @@
-const library = [];
+class LibraryController {
+    #library;
+    constructor () {
+        this.#library = [];
+    }
 
-function Book(title, author, pages, isRead) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
-    this.display = false;
-    this.info = function() {
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${(isRead) ? 'already read' : 'not read yet'}`;
+    addBook() {
+
     }
 }
 
-function addBook() {
-    
+class Book {
+    constructor (title, author, pages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+        this.display = false;
+    }
 }
+
+
 
 function displayBooks() {
     const libraryContainer = document.querySelector('.library');
