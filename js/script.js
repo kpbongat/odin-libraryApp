@@ -4,10 +4,16 @@ class LibraryController {
         this.#library = [];
     }
 
-    addBook() {
+    addBook (title, author, pages, isRead) {
+        const newBook = new Book (title, author, pages, isRead);
+        this.#library.push(newBook);
+        const bookIndex = this.#library.findIndex(i => i === newBook);
+        this.#library[bookIndex]['data-id'] = bookIndex;
 
     }
 }
+
+const library = new LibraryController();
 
 class Book {
     constructor (title, author, pages, isRead) {
@@ -94,10 +100,7 @@ submitBookButton.addEventListener('click', e => {
         const author = document.querySelector('#author').value;
         const pages = document.querySelector('#pages').value;
         const isRead = (document.querySelector('fieldset :checked').value === 'true');
-        const newBook = new Book(title, author, pages, isRead);
-        library.push(newBook);
-        const bookIndex = library.findIndex(i => i === newBook);
-        newBook['data-id'] = bookIndex;
+        library.addBook(title, author, pages, isRead);
         displayBooks();
         form.reset();
 
